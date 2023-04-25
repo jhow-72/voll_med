@@ -55,15 +55,9 @@ public class AgendaDeConsultas {
             throw new ValidacaoException("id da Consulta informada nao existe");
         }
 
-        System.out.println("entrou no metodo cancelar apos o controller");
-
         Consulta consulta = consultaRepository.getReferenceById(dados.idConsulta());
 
-        System.out.println("usou o repository para buscar a consulta");
-
         validadoresCancelamento.forEach(v -> v.validar(dados));
-
-        System.out.println("fez as validacoes para o cancelamento da consulta");
 
         consulta.cancelaConsulta(dados);
         return new DadosDetalhamentoCancelamentoConsulta(consulta);

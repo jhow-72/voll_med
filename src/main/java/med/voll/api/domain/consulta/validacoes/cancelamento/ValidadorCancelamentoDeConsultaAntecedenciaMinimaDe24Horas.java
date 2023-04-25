@@ -18,13 +18,12 @@ public class ValidadorCancelamentoDeConsultaAntecedenciaMinimaDe24Horas implemen
 
     @Override
     public void validar(DadosCancelamentoConsulta dados) {
-        System.out.println("entrou na validacao de antecedencia");
+
         Consulta consulta = consultaRepository.getReferenceById(dados.idConsulta());
-        System.out.println("buscou a consulta no repositoy");
+
         if (Duration.between(LocalDateTime.now(), consulta.getData()).toHours() < 24){
-            System.out.println("entrou dentro do if");
             throw new ValidacaoException("uma consulta somente podera ser cancelada com antecedencia minima de 24 horas");
         }
-        System.out.println("fez a validacao no if");
+
     }
 }
