@@ -1,0 +1,8 @@
+ALTER TABLE consultas
+ADD COLUMN situacao VARCHAR(25) DEFAULT 'AGENDADA',
+ADD COLUMN motivo_cancelamento VARCHAR(50) DEFAULT 'NA';
+
+ALTER TABLE consultas
+MODIFY COLUMN situacao VARCHAR(25) NOT NULL,
+MODIFY COLUMN motivo_cancelamento VARCHAR(50) NOT NULL;
+
